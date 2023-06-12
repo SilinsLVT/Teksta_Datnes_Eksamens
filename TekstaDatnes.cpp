@@ -45,3 +45,20 @@ vector<jautajums> jautajumuielade(const string& failiN){
     }
     return jautajumi;
 }
+
+int lietotajaAtb(){
+    int atbilde;
+    cout<<"Ievadi, pēc savām domām, pareizo atbildi (1-4): ";
+
+    while(true){
+        string ievade;
+        getline(cin >> ws, ievade);
+
+        if(ievade.length()== 1 && ievade[0] >= '1' && ievade[0] <= '4'){
+            atbilde = ievade[0] - '0';
+            break;
+        }
+        cout<<"Nederīga atbilde, ievadi ciparu kas ir no 1 līdz 4: ";
+    }
+    return atbilde;
+}
