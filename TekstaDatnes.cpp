@@ -97,6 +97,13 @@ int main(){
         }else{
             cout<<"Nepareizi!" << endl;
         }
+
+        cout<< "Nospied enter, lai varetu atbildet uz nakošo jautājumu!" << endl;
+        cin.ignore();
+        cin.get();
     }
+    system("clear");
+    cout<<"Spelētāja vārds: " << speletajaVards << endl;
+    cout<<"Spelētāja rezultāts: " << rezultats << endl;
 
 }
