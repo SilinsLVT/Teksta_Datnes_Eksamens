@@ -10,7 +10,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
-
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 struct jautajums {
@@ -61,4 +62,41 @@ int lietotajaAtb(){
         cout<<"Nederīga atbilde, ievadi ciparu kas ir no 1 līdz 4: ";
     }
     return atbilde;
+}
+
+bool atbilzuparbaude(int lietotajaAtbilde1, int lietotajaAtbilde2){
+    return(lietotajaAtbilde1 == 1 && lietotajaAtbilde2 == 2) || (lietotajaAtbilde1 == 2 && lietotajaAtbilde2 == 1);
+}
+
+int main(){
+
+    srand(time(nullptr));
+    vector<jautajums> jautajumi = jautajumuielade("jautajumi.txt");
+    string speletajaVards;
+    cout<<"Ievadiet savu vārdu! ";
+    getline(cin >> ws,speletajaVards);
+    int rezultats = 0;
+    for(int i=0; i < 10; i++){
+        system("clear");
+        cout<< jautajumi[i].teksts << endl;
+        for(int j=0; j<4; j++){
+            cout << j+1 << ". "<< jautajumi[i].iespejas[j] << endl;
+        }
+
+        int lietotajaAtbilde1 = lietotajaAtb();
+        int lietotajaAtbilde2;
+        do{
+            lietotajaAtbilde2 = lietotajaAtb();
+        }while (lietotajaAtbilde2 == lietotajaAtbilde1);
+        if(atbilzuparbaude(lietotajaAtbilde1,lietotajaAtbilde2)){
+            rezultats += 2;
+            cout<<"Pareizi!" << endl;
+        }else if (lietotajaAtbilde1 == 1 || lietotajaAtbilde1 == 2 || lietotajaAtbilde2 == 1 || lietotajaAtbilde2 == 2){
+            rezultats += 1;
+            cout<<"Daļēji pareizi!" << endl;
+        }else{
+            cout<<"Nepareizi!" << endl;
+        }
+    }
+
 }
