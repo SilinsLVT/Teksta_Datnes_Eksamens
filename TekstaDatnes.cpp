@@ -21,3 +21,27 @@ struct cilveks{
     string vards;
     int rezultats;
 };
+
+vector<jautajums> jautajumuielade(const string& failiN){
+    vector<jautajums> jautajumi;
+    ifstream fails(failiN);
+    if (fails.is_open()){
+        string rinda;
+        while (getline(fails,rinda)){
+            jautajums jautajums;
+            jautajums.teksts = rinda;
+            getline(fails,rinda);
+            size_t pozicija = 0;
+            string atstarpe = "  ";
+            while((pozicija = rinda.find(atstarpe)) != string::npos){
+                string iespeja = rinda.substr(0,pozicija);
+                jautajums.iespejas.push_back(iespeja);
+                rinda.erase(0,pozicija + atstarpe.length());
+            }
+            jautajums.iespejas.push_back(rinda);
+            jautajumi.push_back(jautajums);
+        }
+        fails.close();
+    }
+    return jautajumi;
+}
