@@ -12,6 +12,7 @@
 #include <string>
 #include <ctime>
 #include <cstdlib>
+#include <algorithm>
 using namespace std;
 
 struct jautajums {
@@ -106,4 +107,43 @@ int main(){
     cout<<"Spelētāja vārds: " << speletajaVards << endl;
     cout<<"Spelētāja rezultāts: " << rezultats << endl;
 
+
+    vector<cilveks> topSpeletaji;
+    ifstream rezultatuFails("top10.txt");
+    if(rezultatuFails.is_open()){
+        string rinda;
+        while(getline(rezultatuFails,rinda)){
+            cilveks speletajs;
+            speletajs.vards = rinda;
+            getline(rezultatuFails,rinda);
+            speletajs.rezultats = stoi(rinda);
+            topSpeletaji.push_back(speletajs);
+        }
+        rezultatuFails.close();
+    }
+    cilveks sobridejaisSpeletajs;
+    sobridejaisSpeletajs.vards = speletajaVards;
+    sobridejaisSpeletajs.rezultats = rezultats;
+    topSpeletaji.push_back(sobridejaisSpeletajs);
+    sort(topSpeletaji.begin(), topSpeletaji.end(), [](const cilveks& a, const cilveks& b){
+        return a.rezultats > b.rezultats;
+    });
+
+    if(topSpeletaji.size()>10){
+        topSpeletaji.resize(10);
+    }
+
+    ofstream rezultati("top10.txt");
+    if(rezultati.is_open()){
+        for(const auto& speletajs : topSpeletaji){
+            rezultati << speletajs.vards << endl;
+            rezultati << speletajs.rezultats << endl;
+        }
+        rezultati.close();
+    }
+    cout<< "\n\n\n\nTop 10 spelētāji:\n"<< endl;
+    for(const auto& speletajs : topSpeletaji){
+        cout << speletajs.vards << " - " << speletajs.rezultats<< " punkti"<<endl;
+    }
+    return 0;
 }
