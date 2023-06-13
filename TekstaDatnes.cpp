@@ -79,9 +79,9 @@ int main(){
     int rezultats = 0;
     for(int i=0; i < 10; i++){
         system("clear");
-        cout<< jautajumi[i].teksts << endl;
+        cout<< jautajumi[i].teksts << "\n";
         for(int j=0; j<4; j++){
-            cout << j+1 << ". "<< jautajumi[i].iespejas[j] << endl;
+            cout << j+1 << ". "<< jautajumi[i].iespejas[j] << "\n";
         }
 
         int lietotajaAtbilde1 = lietotajaAtb();
@@ -91,21 +91,21 @@ int main(){
         }while (lietotajaAtbilde2 == lietotajaAtbilde1);
         if(atbilzuparbaude(lietotajaAtbilde1,lietotajaAtbilde2)){
             rezultats += 2;
-            cout<<"Pareizi!" << endl;
+            cout<<"Pareizi!" << "\n";
         }else if (lietotajaAtbilde1 == 1 || lietotajaAtbilde1 == 2 || lietotajaAtbilde2 == 1 || lietotajaAtbilde2 == 2){
             rezultats += 1;
-            cout<<"Daļēji pareizi!" << endl;
+            cout<<"Daļēji pareizi!" << "\n";
         }else{
-            cout<<"Nepareizi!" << endl;
+            cout<<"Nepareizi!" << "\n";
         }
 
-        cout<< "Nospied enter, lai varetu atbildet uz nakošo jautājumu!" << endl;
+        cout<< "Nospied enter, lai varetu atbildet uz nakošo jautājumu!" << "\n";
         cin.ignore();
         cin.get();
     }
     system("clear");
-    cout<<"Spelētāja vārds: " << speletajaVards << endl;
-    cout<<"Spelētāja rezultāts: " << rezultats << endl;
+    cout<<"Spelētāja vārds: " << speletajaVards << "\n";
+    cout<<"Spelētāja rezultāts: " << rezultats << "\n";
 
 
     vector<cilveks> topSpeletaji;
@@ -136,14 +136,14 @@ int main(){
     ofstream rezultati("top10.txt");
     if(rezultati.is_open()){
         for(const auto& speletajs : topSpeletaji){
-            rezultati << speletajs.vards << endl;
-            rezultati << speletajs.rezultats << endl;
+            rezultati << speletajs.vards << "\n";
+            rezultati << speletajs.rezultats << "\n";
         }
         rezultati.close();
     }
-    cout<< "\n\n\n\nTop 10 spelētāji:\n"<< endl;
+    cout<< "\n\n\n\nTop 10 spēlētāji:\n"<< "\n";
     for(const auto& speletajs : topSpeletaji){
-        cout << speletajs.vards << " - " << speletajs.rezultats<< " punkti"<<endl;
+        cout << speletajs.vards << " - " << speletajs.rezultats<< " punkti "<<"\n";
     }
     return 0;
 }

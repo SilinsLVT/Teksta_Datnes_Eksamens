@@ -1,20 +1,20 @@
-Vai mani sauc lukass
-ja  ja  ne  ne
-Vai mani sauc qukass
-ja  ja  ne  ne
-Vai mani sauc wukass
-ja  ja  ne  ne
-Vai mani sauc eukass
-ja  ja  ne  ne
-Vai mani sauc rukass
-ja  ja  ne  ne
-Vai mani sauc tukass
-ja  ja  ne  ne
-Vai mani sauc yukass
-ja  ja  ne  ne
-Vai mani sauc uukass
-ja  ja  ne  ne
-Vai mani sauc iukass
-ja  ja  ne  ne
-Vai mani sauc oukass
-ja  ja  ne  ne
+Ko dara ifstream?
+lasa tekstu  izvada tekstu no failiem  izveido failus  ieraksta failos
+Ko dara ifstream?
+izveido failus  ieraksta failos  lasa tekstu  izvada tekstu no failiem
+Ar kadam funkcijam var atvert failus ar fstream palidzibu?
+open()  fstream::open()  explode()  delete()
+Ar kadam funkcijam var aizvert failu ar fstream palidzibu?
+close()  fstream::close()  bad()  std::ios::in
+Ar kadam funkcijam var parbaudit vai fails ir atverts?
+is_open()  fstream::is_open()  close()  is_closed()
+Ar kadam funkcijas var nolasit datus no teksta faila?
+read()  fstream::read()  seekp()  deof()
+Kuras funkcijas izmanto, lai ierakstitu datus faila?
+write()  fstream::write()  pellh()  telk()
+Kuras funkcijas var noteikt, kad ir nonakts lidz faila beigam?
+eof()  fstream::eof()  fegof()  kpleek()
+Ar kadam funkciju var noteikt, vai fails deres/ stardas?
+good()  fstream::good()  bad()  fstream::bad()
+Ar kuram funkcijam var noteikt, vai bija kada kluda, kamer programma izmantoja failu?
+fail()  bad()  didntopen()  failure()
